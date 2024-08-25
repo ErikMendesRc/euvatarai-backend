@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: euvatar-api
+    environment:
+      SPRING_APPLICATION_NAME: euvatarapi
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-cr5ohhjtq21c73b5km3g-a.oregon-postgres.render.com/euvatardb
+      SPRING_DATASOURCE_USERNAME: euvatardb_user
+      SPRING_DATASOURCE_PASSWORD: 6e5bwNCIfGsLfz2y8cXXYcwRHpKRMnvO
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES: true
+      SPRING_JPA_SHOW_SQL: true
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
+      MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS: always
+      MANAGEMENT_ENDPOINTS_WEB_BASE_PATH: /actuator
+      SPRINGDOC_API_DOCS_ENABLED: true
+      SPRINGDOC_SWAGGER_UI_ENABLED: true
+      CONVAI_API_BASE_URL: https://api.convai.com
+      CONVAI_API_KEY: cdcf6a41413a5cd4abc3929bfc18173d
+      JWT_SECRET: nRgO/DGl6hYBNni7R8hHfSTOWUgQj1kBpEOTi5UoIns=
+      JWT_ISSUER: euvatar-api
+      JWT_EXPIRATION: 36000
+    ports:
+      - "8080:8080"
